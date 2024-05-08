@@ -15,8 +15,8 @@ export class AuthService {
   async validate({ username, password }: ValidateUserDto) {
     const user = await this.userModel.findOne({ username: username }).exec();
     if (user && password === user.password) {
-      const { password, ...payload } = user;
-      return this.jwtService.signAsync(payload);
+      const { _id, username } = user;
+      return this.jwtService.signAsync({ _id, username });
     } else {
       return null;
     }

@@ -13,6 +13,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@auth/*": ["./src/auth/*"],
+      "@users/*": ["./src/users/*"],
+      "@schema/*": ["./src/schema/*"],
       "@guard/*": ["./src/common/guard/*"],
       "@strategy/*": ["./src/common/strategy/*"]
     },
