@@ -11,10 +11,11 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@schema": ["./src/schema"],
-      "@config": ["./src/config"],
-      "@helper": ["./src/helper"],
-      "@guard": ["./src/common/guard"],
+      "@schemas": ["src/schemas"],
+      "@configs": ["src/configs"],
+      "@helpers": ["src/common/helpers"],
+      "@guards": ["src/common/guards"],
+      "@utils": ["src/common/utils"],
       "@auth/*": ["./src/auth/*"],
       "@users/*": ["./src/users/*"]
     },
