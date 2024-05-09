@@ -1,25 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { User } from '@/schema/user.schema';
-import { Model } from 'mongoose';
+import { UsersRepository } from './users.repo';
+import { hashData } from 'src/utils';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
+  constructor(private usersRepository: UsersRepository) {}
 
   async create(createUserDto: CreateUserDto) {
-    const newUser = new this.userModel(createUserDto);
-    return await newUser.save();
+    createUserDto.password = await hashData(createUserDto.password);
+    return await this.usersRepository.create(createUserDto);
   }
 
   findAll() {
     return `This action returns all users`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findByUsername(username: string) {
+    return await this.usersRepository.findByUsername(username);
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

@@ -14,7 +14,7 @@ import { User, UserSchema } from '@schema';
     ]),
   ],
   exports: [
-    MongooseModule
+    UsersService
   ],
   controllers: [UsersController],
   providers: [UsersService],
