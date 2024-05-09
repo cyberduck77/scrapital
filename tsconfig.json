@@ -11,12 +11,12 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
+      "@schema": ["./src/schema"],
+      "@config": ["./src/config"],
+      "@helper": ["./src/helper"],
+      "@guard": ["./src/common/guard"],
       "@auth/*": ["./src/auth/*"],
-      "@users/*": ["./src/users/*"],
-      "@schema/*": ["./src/schema/*"],
-      "@guard/*": ["./src/common/guard/*"],
-      "@strategy/*": ["./src/common/strategy/*"]
+      "@users/*": ["./src/users/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

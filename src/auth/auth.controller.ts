@@ -1,4 +1,4 @@
-import { LocalGuard } from '@guard/local.guard';
+import { LocalGuard } from '@guard';
 import { Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { Request } from 'express';
 
