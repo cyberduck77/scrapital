@@ -17,6 +17,10 @@ export class UsersService {
     return `This action returns all users`;
   }
 
+  async findById(id: string) {
+    return await this.usersRepository.findById(id);
+  }
+
   async findByUsername(username: string) {
     return await this.usersRepository.findByUsername(username);
   }

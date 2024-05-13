@@ -13,10 +13,12 @@ export class AuthService {
 
   async validate({ username, password }: ValidateUserDto) {
     const user = await this.usersService.findByUsername(username);
-    const matchPasword = await bcrypt.compare(password, user.password);
-    if (user && matchPasword) {
-      const { _id, username } = user;
-      return this.jwtService.signAsync({ _id, username });
+    if (user) {
+      const matchPasword = await bcrypt.compare(password, user.password);
+      if (matchPasword) {
+        const { _id, username } = user;
+        return this.jwtService.signAsync({ _id, username });
+      }
     }
     return null;
   }
